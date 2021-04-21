@@ -3,8 +3,19 @@
     "version": "4.4.1",
     "main":"bootstrap.min.js",
     "peerDependencies": {
-      "jquery": "3.2.1",
-      "popper.js": "1.12.9"
+      "jquery": "3.x",
+      "popper.js": "1.x"
+    },
+    "youwol": {
+        "type": "library",
+        "pipeline": {
+            "name": "yw_pipeline_externals",
+            "version": "0.0.0"
+        },
+        "cdnDependencies": {
+            "jquery": "3.x",
+            "popper.js": "1.x"
+        }
     }
   }
   

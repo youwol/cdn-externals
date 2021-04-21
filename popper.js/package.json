@@ -1,7 +1,7 @@
 {
-    "name": "fontawesome",
-    "version": "5.12.1",
-    "main":"package.json",
+    "name": "popper.js",
+    "version": "1.12.9",
+    "main": "popper.min.js",
     "youwol": {
         "type": "library",
         "pipeline": {
