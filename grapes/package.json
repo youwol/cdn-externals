@@ -1,0 +1,6 @@
+{
+    "name": "grapes",
+    "version": "0.16.2",
+    "main": "./grapes.min.js"
+  }
+  
