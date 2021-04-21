@@ -1,0 +1,13 @@
+{
+    "name": "reflect-metadata",
+    "version": "0.1.13",
+    "main": "reflect-metadata.min.js",
+    "youwol": {
+        "type": "library",
+        "pipeline": {
+            "name": "yw_pipeline_externals",
+            "version": "0.0.0"
+        }
+    }
+  }
+  
