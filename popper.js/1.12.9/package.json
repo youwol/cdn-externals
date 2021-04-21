@@ -1,7 +1,0 @@
-{
-    "name": "popper.js",
-    "version": "1.12.9",
-    "encoding":"brotli",
-    "main": "popper.min.js"
-  }
-  

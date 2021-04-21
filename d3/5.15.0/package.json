@@ -1,7 +1,0 @@
-{
-    "name": "d3",
-    "version": "5.15.0",
-    "encoding":"brotli",
-    "main":"d3.min.js"
-  }
-  
