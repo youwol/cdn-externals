@@ -1,0 +1,12 @@
+{
+    "name": "three",
+    "version": "0.114.0",
+    "main": "three.min.js",
+    "youwol": {
+        "type": "library",
+        "pipeline": {
+            "name": "yw_pipeline_externals",
+            "version": "0.0.0"
+        }
+    }
+}
