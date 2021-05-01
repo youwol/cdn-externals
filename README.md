@@ -16,3 +16,5 @@ These packages are essentially duplicated in YouWol's CDN...until we find a bett
 ### Modified bundles
 
 -    grapes/grapes.min.js: use youwol cdn url to fetch fontawesome icons (search for 'fontawesome')
+-    three-trackballcontrols: I believe some changes have been maid regarding catching event from the renderer
+when the three viewer is embedded in an iframe
