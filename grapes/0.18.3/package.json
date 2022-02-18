@@ -1,0 +1,9 @@
+{
+    "name": "grapes",
+    "version": "0.18.3",
+    "main": "grapes.min.js",
+    "youwol": {
+        "type": "library"
+    }
+  }
+  

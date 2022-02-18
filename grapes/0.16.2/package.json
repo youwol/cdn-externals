@@ -1,0 +1,13 @@
+{
+    "name": "grapes_old_0.16.2",
+    "version": "0.16.2",
+    "main": "grapes.min.js",
+    "youwol": {
+        "type": "library",
+        "pipeline": {
+            "name": "yw_pipeline_externals",
+            "version": "0.0.0"
+        }
+    }
+  }
+  

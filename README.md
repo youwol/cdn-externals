@@ -17,4 +17,5 @@ These packages are essentially duplicated in YouWol's CDN...until we find a bett
 
 -    grapes/grapes.min.js: use youwol cdn url to fetch fontawesome icons (search for 'fontawesome')
 -    three-trackballcontrols: I believe some changes have been maid regarding catching event from the renderer
+-    mathjax: u.src=u.src.replace(/%%URL%%/,r) => u.src=u.src.replace(/%%URL%%/,'/api/assets-gateway/raw/package/bWF0aGpheA==/3.1.4/fonts'; hacky => need a proper installation of mathjax
 when the three viewer is embedded in an iframe
