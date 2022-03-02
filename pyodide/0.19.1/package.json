@@ -1,0 +1,13 @@
+{
+    "name": "@pyodide/pyodide",
+    "version": "0.19.1",
+    "main": "full/pyodide.js",
+    "youwol": {
+        "type": "library",
+        "pipeline": {
+            "name": "yw_pipeline_externals",
+            "version": "0.0.0"
+        }
+    }
+  }
+  
