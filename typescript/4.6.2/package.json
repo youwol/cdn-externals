@@ -1,0 +1,16 @@
+{
+    "name": "typescript",
+    "version": "4.6.2",
+    "main": "typescript.min.js",
+    "dependencies": {
+        "typescript": "4.6.2"
+    },
+    "youwol": {
+        "type": "library",
+        "pipeline": {
+            "name": "yw_pipeline_externals",
+            "version": "0.0.0"
+        }
+    }
+}
+  
