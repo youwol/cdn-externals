@@ -12,11 +12,11 @@ from youwol_utils.utils_paths import parse_json
 
 class BuildStep(PipelineStep):
     id: str = "build"
-    run: str = "(yarn && rm -rf ./lib && cp ./node_modules/typescript/lib ./lib -r)"
+    run: str = "(yarn && rm -rf ./lib && mkdir ./lib && cp ./node_modules/typescript/lib/lib.* ./lib -r)"
 
     sources: FileListing = FileListing(
         include=["*"],
-        ignore=['.yw_pipeline/**', 'node_modules/*']
+        ignore=['.yw_pipeline/**', 'node_modules/*', 'cdn.zip', 'lib/tserver*']
     )
 
     artifacts: List[Artifact] = [
@@ -24,7 +24,7 @@ class BuildStep(PipelineStep):
             id='dist',
             files=FileListing(
                 include=["*"],
-                ignore=['.yw_pipeline/**', 'node_modules/*']
+                ignore=['.yw_pipeline/**', 'node_modules/*', 'cdn.zip', 'lib/tsserver*']
             )
         )
     ]
