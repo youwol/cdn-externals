@@ -3,8 +3,7 @@ from typing import List
 from pydantic import BaseModel
 from youwol.environment.forward_declaration import YouwolEnvironment
 from youwol.environment.models import IPipelineFactory
-from youwol.environment.models_project import Artifact, Flow, Pipeline, PipelineStep, FileListing, BrowserApp, \
-    Execution, FromAsset, JsBundle
+from youwol.environment.models_project import Artifact, Flow, Pipeline, PipelineStep, FileListing, JsBundle
 from youwol.pipelines.pipeline_typescript_weback_npm import PublishCdnRemoteStep, PublishCdnLocalStep
 from youwol_utils.context import Context
 from youwol_utils.utils_paths import parse_json
@@ -23,7 +22,7 @@ class BuildStep(PipelineStep):
             id='dist',
             files=FileListing(
                 include=["*", "full/**"],
-                ignore=['.yw_pipeline/**']
+                ignore=['.yw_pipeline/**', 'cdn.zip']
             )
         )
     ]
