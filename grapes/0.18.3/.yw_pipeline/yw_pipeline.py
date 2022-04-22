@@ -23,7 +23,7 @@ class BuildStep(PipelineStep):
             id='dist',
             files=FileListing(
                 include=["*", "css/**", "fonts/**"],
-                ignore=['.yw_pipeline/**']
+                ignore=['.yw_pipeline/**', 'cdn.zip']
             )
         )
     ]
