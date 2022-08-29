@@ -1,8 +1,9 @@
 from pathlib import Path
+from typing import Any
 
 from youwol.environment.forward_declaration import YouwolEnvironment
 from youwol.environment.models import IPipelineFactory
-from youwol.environment.models_project import JsBundle, Link
+from youwol.environment.models_project import JsBundle
 from youwol_utils.context import Context
 
 import importlib.util
@@ -12,7 +13,7 @@ spec = importlib.util.spec_from_file_location(
     "module.name",
     path_common
 )
-common_pipeline = importlib.util.module_from_spec(spec)
+common_pipeline: Any = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(common_pipeline)
 
 
@@ -24,6 +25,6 @@ class PipelineFactory(IPipelineFactory):
     async def get(self, _env: YouwolEnvironment, _ctx: Context):
 
         config = common_pipeline.PipelineConfig(
-            target=JsBundle(links=[Link(name="bundle-analysis", url="dist/bundle-analysis.html")])
+            target=JsBundle()
         )
         return common_pipeline.pipeline(config)
