@@ -1,20 +1,29 @@
-from pathlib import Path
-from typing import Any
-
+from typing import List
 from youwol.environment.forward_declaration import YouwolEnvironment
 from youwol.environment.models import IPipelineFactory
-from youwol.environment.models_project import JsBundle
+from youwol.environment.models_project import Artifact, Flow, Pipeline, PipelineStep, FileListing, JsBundle
+from youwol.pipelines.pipeline_typescript_weback_npm import PublishCdnRemoteStep, PublishCdnLocalStep
 from youwol_utils.context import Context
+from youwol_utils.utils_paths import parse_json
 
-import importlib.util
 
-path_common = Path(__file__).parent.parent.parent.parent /'yw_pipeline.py'
-spec = importlib.util.spec_from_file_location(
-    "module.name",
-    path_common
-)
-common_pipeline: Any = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(common_pipeline)
+class BuildStep(PipelineStep):
+    id: str = "build"
+    run: str = "echo 'Nothing to do'"
+    sources: FileListing = FileListing(
+        include=["*", "**"],
+        ignore=['.yw_pipeline/**', 'cdn.zip', 'node_modules/**']
+    )
+
+    artifacts: List[Artifact] = [
+        Artifact(
+            id='dist',
+            files=FileListing(
+                include=["*", "**"],
+                ignore=['.yw_pipeline/**', 'cdn.zip', 'node_modules']
+            )
+        )
+    ]
 
 
 class PipelineFactory(IPipelineFactory):
@@ -24,7 +33,22 @@ class PipelineFactory(IPipelineFactory):
 
     async def get(self, _env: YouwolEnvironment, _ctx: Context):
 
-        config = common_pipeline.PipelineConfig(
-            target=JsBundle()
+        return Pipeline(
+            target=JsBundle(),
+            tags=["javascript", "library", "npm", "external"],
+            projectName=lambda path: parse_json(path / "package.json")["name"],
+            projectVersion=lambda path: parse_json(path / "package.json")["version"],
+            steps=[
+                BuildStep(),
+                PublishCdnLocalStep(packagedArtifacts=['dist']),
+                PublishCdnRemoteStep()
+            ],
+            flows=[
+                Flow(
+                    name="prod",
+                    dag=[
+                        "build > publish-local > publish-remote "
+                    ]
+                )
+            ]
         )
-        return common_pipeline.pipeline(config)

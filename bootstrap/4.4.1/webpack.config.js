@@ -1,10 +1,13 @@
-/** @format */
-
+const apiVersion = "4";
+const externals = {
+    "jquery": "$_APIv3",
+    "popper.js": "Popper_APIv1"
+};
 const path = require("path");
 require("webpack");
 const pkg = require("./package.json");
 const ROOT = path.resolve(__dirname, "src");
-const DESTINATION = path.resolve(__dirname, "./");
+const DESTINATION = path.resolve(__dirname, "dist");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 module.exports = {
@@ -23,7 +26,7 @@ module.exports = {
     path: DESTINATION,
     libraryTarget: "umd",
     umdNamedDefine: true,
-    library: `${pkg.name}#${pkg.version.split(".")[0]}`,
+    library: `@externals/${pkg.name}_APIv${apiVersion}`,
     filename: pkg.name + ".js",
     globalObject: `(typeof self !== 'undefined' ? self : this)`,
   },
@@ -31,14 +34,14 @@ module.exports = {
     extensions: [".ts", "tsx", ".js"],
     modules: [ROOT, "node_modules"],
   },
-  externals: [],
+  externals,
   module: {
     rules: [
       {
         test: /\.ts$/,
         use: [{ loader: "ts-loader" }],
         exclude: /node_modules/,
-      }
+      },
     ],
   },
   devtool: "source-map",

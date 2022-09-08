@@ -17,8 +17,16 @@
     },
     "scripts": {
         "build": "yarn build:dev",
-        "build:dev": "del-cli dist && del-cli dist && webpack --mode development",
+        "build:dev": "del-cli dist && del-cli dist &&webpack --mode development",
         "build:prod": "del-cli dist && webpack --mode production"
+    },
+    "description": "",
+    "author": "greinisch@youwol.com",
+    "homepage": "https://github.com/bootstrap#README.md",
+    "youwol": {
+        "cdnDependencies": {
+            "jquery": "^3.6.1",
+            "popper.js": "^1.16.1"
+        }
     }
 }
-  

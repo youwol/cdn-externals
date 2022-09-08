@@ -1,21 +1,11 @@
 # YouWol's CDN externals
 
-<p>
-    <a href="https://github.com/kefranabg/readme-md-generator/graphs/commit-activity" target="_blank">
-        <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
-    </a>
-    <a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE" target="_blank">
-        <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
-    </a>
-</p>
-
 This repo gathers the bundles of external npm packages exposed in the YouWol's CDN.
-These packages are essentially duplicated in YouWol's CDN...until we find a better approach to manage them.
 
+This objective is to encapsulate them in ES modules, using a name versioned with respect to the version of the API.
 
-### Modified bundles
-
--    grapes/grapes.min.js: use youwol cdn url to fetch fontawesome icons (search for 'fontawesome')
--    three-trackballcontrols: I believe some changes have been maid regarding catching event from the renderer
--    mathjax: u.src=u.src.replace(/%%URL%%/,r) => u.src=u.src.replace(/%%URL%%/,'/api/assets-gateway/raw/package/bWF0aGpheA==/3.1.4/fonts'; hacky => need a proper installation of mathjax
-when the three viewer is embedded in an iframe
+Packages not properly exposed:
+*  pyodide: a better way need to be used allowing for separation between pyodide and the pypi modules. 
+Regarding the versioning, having multiple python interpreters in a project is not desirable.
+*  mathjax: did not find a correct way to build the module. It won't work if multiple versions are loaded.
+*  reflect-metadat: the package is used via the global variable Reflect -> multiple versions won't work.
