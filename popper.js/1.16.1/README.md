@@ -1,4 +1,4 @@
-# Wrapper of the npm package [popper.js](https://www.npmjs.com/package/rxjs) for publication in YouWol's CDN.
+# Wrapper of the npm package [popper.js](https://www.npmjs.com/package/popper.js) for publication in YouWol's CDN.
 
 
 

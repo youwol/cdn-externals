@@ -1,4 +1,4 @@
-# Wrapper of the npm package [plotly.js-gl2d-dist](https://www.npmjs.com/package/rxjs) for publication in YouWol's CDN.
+# Wrapper of the npm package [plotly.js-gl2d-dist](https://www.npmjs.com/package/plotly.js-gl2d-dist) for publication in YouWol's CDN.
 
 
 

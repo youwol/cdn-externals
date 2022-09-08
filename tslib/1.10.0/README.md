@@ -1,4 +1,4 @@
-# Wrapper of the npm package [tslib](https://www.npmjs.com/package/rxjs) for publication in YouWol's CDN.
+# Wrapper of the npm package [tslib](https://www.npmjs.com/package/tslib) for publication in YouWol's CDN.
 
 
 

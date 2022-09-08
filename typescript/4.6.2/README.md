@@ -1,4 +1,4 @@
-# Wrapper of the npm package [typescript](https://www.npmjs.com/package/rxjs) for publication in YouWol's CDN.
+# Wrapper of the npm package [typescript](https://www.npmjs.com/package/typescript) for publication in YouWol's CDN.
 
 
 

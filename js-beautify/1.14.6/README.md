@@ -1,4 +1,4 @@
-# Wrapper of the npm package [js-beautify](https://www.npmjs.com/package/rxjs) for publication in YouWol's CDN.
+# Wrapper of the npm package [js-beautify](https://www.npmjs.com/package/js-beautify) for publication in YouWol's CDN.
 
 
 

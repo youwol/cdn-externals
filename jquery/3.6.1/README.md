@@ -1,4 +1,4 @@
-# Wrapper of the npm package [jquery](https://www.npmjs.com/package/rxjs) for publication in YouWol's CDN.
+# Wrapper of the npm package [jquery](https://www.npmjs.com/package/jquery) for publication in YouWol's CDN.
 
 
 

@@ -1,4 +1,4 @@
-# Wrapper of the npm package [three-trackballcontrols](https://www.npmjs.com/package/rxjs) for publication in YouWol's CDN.
+# Wrapper of the npm package [three-trackballcontrols](https://www.npmjs.com/package/three-trackballcontrols) for publication in YouWol's CDN.
 
 
 

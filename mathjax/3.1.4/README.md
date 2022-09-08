@@ -1,4 +1,4 @@
-# Wrapper of the npm package [mathjax](https://www.npmjs.com/package/rxjs) for publication in YouWol's CDN.
+# Wrapper of the npm package [mathjax](https://www.npmjs.com/package/mathjax) for publication in YouWol's CDN.
 
 
 

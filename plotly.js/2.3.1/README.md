@@ -1,4 +1,4 @@
-# Wrapper of the npm package [plotly.js](https://www.npmjs.com/package/rxjs) for publication in YouWol's CDN.
+# Wrapper of the npm package [plotly.js](https://www.npmjs.com/package/plotly.js) for publication in YouWol's CDN.
 
 
 

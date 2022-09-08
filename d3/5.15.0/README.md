@@ -1,4 +1,4 @@
-# Wrapper of the npm package [d3](https://www.npmjs.com/package/rxjs) for publication in YouWol's CDN.
+# Wrapper of the npm package [d3](https://www.npmjs.com/package/d3) for publication in YouWol's CDN.
 
 
 

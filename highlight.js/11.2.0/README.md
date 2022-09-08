@@ -1,4 +1,4 @@
-# Wrapper of the npm package [highlight.js](https://www.npmjs.com/package/rxjs) for publication in YouWol's CDN.
+# Wrapper of the npm package [highlight.js](https://www.npmjs.com/package/highlight.js) for publication in YouWol's CDN.
 
 
 
