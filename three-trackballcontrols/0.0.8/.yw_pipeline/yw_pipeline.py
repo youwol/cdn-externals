@@ -6,9 +6,9 @@ from youwol.pipelines.pipeline_typescript_weback_npm.external import PipelineCon
 from youwol_utils.context import Context
 
 
-class PatchStep(PipelineStep):
-    id: str = 'patch'
-    run: str = "cp src/three-trackballcontrols.patched.js node_modules/three-trackballcontrols/index.js"
+class PatchInitStep(PipelineStep):
+    id: str = 'init-patched'
+    run: str = "(yarn && cp src/three-trackballcontrols.patched.js node_modules/three-trackballcontrols/index.js)"
     sources: FileListing = FileListing(
         include=["src/three-trackballcontrols.patched.js"],
     )
@@ -21,14 +21,7 @@ class PipelineFactory(IPipelineFactory):
 
     async def get(self, env: YouwolEnvironment, context: Context) -> Pipeline:
 
-        base_pipeline = await pipeline(PipelineConfig(), context)
-        base_pipeline.steps.append(PatchStep())
-        base_pipeline.flows = [
-            Flow(
-                name="prod",
-                dag=[
-                    "init > patch > build > publish-local > publish-remote "
-                ]
-            )
-        ]
-        return base_pipeline
+        config = PipelineConfig(
+            customInitStep=PatchInitStep()
+        )
+        return await pipeline(config, context)

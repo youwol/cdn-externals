@@ -18,15 +18,9 @@ class PipelineFactory(IPipelineFactory):
         super().__init__(**kwargs)
 
     async def get(self, _env: YouwolEnvironment, ctx: Context) -> Pipeline:
-        base_pipeline = await pipeline(PipelineConfig(), ctx)
-        base_pipeline.steps.append(PatchInitStep())
-        base_pipeline.flows = [
-            Flow(
-                name="prod",
-                dag=[
-                    "init_patched > build > publish-local > publish-remote "
-                ]
-            )
-        ]
-        return base_pipeline
+
+        config = PipelineConfig(
+            customInitStep=PatchInitStep()
+        )
+        return await pipeline(config, ctx)
 

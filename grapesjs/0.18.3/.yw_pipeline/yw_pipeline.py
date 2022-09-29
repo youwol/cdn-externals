@@ -29,14 +29,7 @@ class PipelineFactory(IPipelineFactory):
 
     async def get(self, _env: YouwolEnvironment, ctx: Context) -> Pipeline:
 
-        base_pipeline = await pipeline(PipelineConfig(), ctx)
-        base_pipeline.steps.append(PatchBuildStep())
-        base_pipeline.flows = [
-            Flow(
-                name="prod",
-                dag=[
-                    "init > build_patch > publish-local > publish-remote "
-                ]
-            )
-        ]
-        return base_pipeline
+        config = PipelineConfig(
+            customBuildStep=PatchBuildStep()
+        )
+        return await pipeline(config, ctx)
