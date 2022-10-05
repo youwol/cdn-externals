@@ -47,7 +47,7 @@ class PipelineFactory(IPipelineFactory):
                 Flow(
                     name="prod",
                     dag=[
-                        "build > publish-local > publish-remote "
+                        "build > cdn-local > publish-remote "
                     ]
                 )
             ]
