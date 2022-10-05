@@ -1,0 +1,12 @@
+{
+    "name": "@pyodide/scipy",
+    "version": "1.8.1",
+    "main": "full/scipy-1.8.1-cp310-cp310-emscripten_3_1_14_wasm32.whl",
+    "youwol": {
+        "cdnDependencies": {
+            "@pyodide/numpy": "^1.22.4",
+            "@pyodide/CLAPACK": "^3.2.1"
+        }
+    }
+  }
+  

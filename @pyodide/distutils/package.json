@@ -1,0 +1,9 @@
+{
+    "name": "@pyodide/distutils",
+    "version": "0.3.4",
+    "main": "full/distutils.tar",
+    "youwol": {
+        "type": "library"
+    }
+  }
+  

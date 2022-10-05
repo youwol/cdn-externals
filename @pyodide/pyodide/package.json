@@ -1,0 +1,34 @@
+{
+    "name": "pyodide",
+    "version": "0.21.3",
+    "main": "full/pyodide.js",
+    "dependencies": {
+        "pyodide": "0.21.3",
+        "crypto-browserify": "^3.12.0",
+        "url": "^0.11.0"
+    },
+    "devDependencies": {
+        "ts-node": "^10.9.1",
+        "del-cli": "3.0.1",
+        "typescript": "^4.7.4",
+        "ts-loader": "^9.3.1",
+        "webpack": "5.69.1",
+        "webpack-bundle-analyzer": "^4.5.0",
+        "webpack-cli": "4.9.2"
+    },
+    "scripts": {
+        "build": "yarn build:dev",
+        "build:dev": "del-cli dist && webpack --mode development",
+        "patch-build": "sed -i 's/__webpack_require__(\"..\\/node_modules\\/pyodide lazy recursive\")/import/g'  ./full/pyodide.js ",
+        "copy-data": "cp node_modules/pyodide/pyodide.asm.* ./full && cp node_modules/pyodide/pyodide_py.tar ./full && cp node_modules/pyodide/repodata.json ./full && cp node_modules/pyodide/distutils.tar ./full && cp ../CLAPACK/full/CLAPACK-3.2.1.zip ./full",
+        "build:prod_raw_copy": "del-cli full && mkdir full && cp node_modules/pyodide/pyodide.js ./full && cp node_modules/pyodide/pyodide.js.map ./full && yarn copy-data",
+        "build:prod_real_build": "del-cli full && webpack --mode development && yarn patch-build && yarn copy-data",
+        "build:prod": "yarn build:prod_real_build"
+    },
+    "description": "",
+    "author": "greinisch@youwol.com",
+    "homepage": "https://github.com/pyodide#README.md",
+    "youwol": {
+        "cdnDependencies": {}
+    }
+}

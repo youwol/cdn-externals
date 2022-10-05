@@ -1,0 +1,9 @@
+{
+    "name": "@pyodide/pyparsing",
+    "version": "3.0.9",
+    "main": "full/pyparsing-3.0.9-py3-none-any.whl",
+    "youwol": {
+        "type": "library"
+    }
+  }
+  

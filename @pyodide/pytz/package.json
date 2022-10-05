@@ -1,0 +1,9 @@
+{
+    "name": "@pyodide/pytz",
+    "version": "2022.1.0",
+    "main": "full/pytz-2022.1-py2.py3-none-any.whl",
+    "youwol": {
+        "type": "library"
+    }
+  }
+  
