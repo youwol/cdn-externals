@@ -11,7 +11,7 @@ class BuildStep(PipelineStep):
     id: str = "build"
     run: str = "echo 'Nothing to do'"
     sources: FileListing = FileListing(
-        include=["*", "full/**"],
+        include=["*", "dist/**"],
         ignore=['.yw_pipeline/**']
     )
 
@@ -19,7 +19,7 @@ class BuildStep(PipelineStep):
         Artifact(
             id='dist',
             files=FileListing(
-                include=["*", "full/**"],
+                include=["*", "dist/**"],
                 ignore=['.yw_pipeline/**', 'cdn.zip']
             )
         )

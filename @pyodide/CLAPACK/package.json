@@ -1,9 +1,0 @@
-{
-    "name": "@pyodide/CLAPACK",
-    "version": "3.2.1",
-    "main": "full/CLAPACK-3.2.1.zip",
-    "youwol": {
-        "type": "library"
-    }
-  }
-  
