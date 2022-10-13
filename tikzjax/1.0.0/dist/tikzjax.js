@@ -25770,6 +25770,8 @@ exports.inflateUndermine = inflateUndermine;
 
           let processing = false;
           let loading = false;
+          let resultsCache = {};
+
           async function waitForLoaded() {
             return await new Promise((resolve) => {
               const interval = setInterval(() => {
@@ -25840,12 +25842,17 @@ exports.inflateUndermine = inflateUndermine;
             window["tikzjax"]["loaded"] = {
               process,
               parse: async (textContents) => {
+                if (resultsCache[textContents]) {
+                  return resultsCache[textContents];
+                }
+
                 console.log("### parse requested");
                 await waitForFree();
                 console.log("### got handle");
                 try {
                   const result = await process(textContents);
                   processing = false;
+                  resultsCache[textContents] = result;
                   return result;
                 } catch (e) {
                   console.error("Error while parsing tikz");
@@ -25853,6 +25860,7 @@ exports.inflateUndermine = inflateUndermine;
                   const div = document.createElement("div");
                   div.innerText =
                     "Error: Failed to parse tikz source, check console for more info";
+                  resultsCache[textContents] = div;
                   return div;
                 }
               },
