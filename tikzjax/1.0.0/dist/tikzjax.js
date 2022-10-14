@@ -25770,12 +25770,10 @@ exports.inflateUndermine = inflateUndermine;
 
           let processing = false;
           let loading = false;
-          let resultsCache = {};
 
           async function waitForLoaded() {
             return await new Promise((resolve) => {
               const interval = setInterval(() => {
-                console.log(`### Try to load`);
                 if (window["tikzjax"]["loaded"] != undefined) {
                   resolve(window["tikzjax"]["loaded"]);
                   clearInterval(interval);
@@ -25786,7 +25784,6 @@ exports.inflateUndermine = inflateUndermine;
           async function waitForFree() {
             return await new Promise((resolve) => {
               const interval = setInterval(() => {
-                console.log(`### Try to resolve`);
                 if (!processing) {
                   processing = true;
                   resolve("foo");
@@ -25798,11 +25795,9 @@ exports.inflateUndermine = inflateUndermine;
           window["tikzjax"]["load"] = async function () {
             if (loading) {
               const d = await waitForLoaded();
-              console.log("Return loaded tikzjax");
               return d;
             }
             loading = true;
-            console.log("### Load tikzjax wasm files");
             await load();
 
             async function process(text) {
@@ -25842,31 +25837,20 @@ exports.inflateUndermine = inflateUndermine;
             window["tikzjax"]["loaded"] = {
               process,
               parse: async (textContents) => {
-                if (resultsCache[textContents]) {
-                  return resultsCache[textContents];
-                }
-
-                console.log("### parse requested");
                 await waitForFree();
-                console.log("### got handle");
                 try {
                   const result = await process(textContents);
                   processing = false;
-                  resultsCache[textContents] = result;
                   return result;
                 } catch (e) {
-                  console.error("Error while parsing tikz");
                   processing = false;
                   const div = document.createElement("div");
                   div.innerText =
                     "Error: Failed to parse tikz source, check console for more info";
-                  resultsCache[textContents] = div;
                   return div;
                 }
               },
             };
-
-            console.log("### Done Load tikzjax wasm files");
             return window["tikzjax"]["loaded"];
           };
           /* WEBPACK VAR INJECTION */
