@@ -19,7 +19,7 @@ class BuildStep(PipelineStep):
         Artifact(
             id='dist',
             files=FileListing(
-                include=["*", "dist/**"],
+                include=["*", "dist/**", "node_modules/pyodide"],
                 ignore=['.yw_pipeline/**', 'cdn.zip']
             )
         )
