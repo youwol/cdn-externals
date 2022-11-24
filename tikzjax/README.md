@@ -6,6 +6,7 @@ Thanks to Jim Fowler for doing all of this.
 The script dist/tikzjax.js has been 'patched' (more 'hacked') to allow:
 *  use in youwol (url has been rewritten)
 *  concurrent parse  (stuffs with 'setIntervall': make sure 2 'parse' are not executing at the same time)
+*  remove the reference to the 'sourceMappingURL' at the end of the file
 
 The script 'fetch_fonts' allow to gather the fonts required by the package.
 
