@@ -1,4 +1,4 @@
-from youwol.environment.forward_declaration import YouwolEnvironment
+from youwol.environment.youwol_environment import YouwolEnvironment
 from youwol.environment.models import IPipelineFactory
 from youwol.environment.models_project import Pipeline
 from youwol.pipelines.pipeline_typescript_weback_npm.external import PipelineConfig, pipeline
