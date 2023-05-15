@@ -1,0 +1,83 @@
+name: Request npm package Integration
+description: Request the integration of an npm package into Youwol CDN
+title: "[CDN: NPM package integration]"
+assignees:
+  - youwol-guillaume
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ask for an npm package to be integrated into our CDN !
+
+  - id: pkg_registry
+    type: dropdown
+    attributes:
+      label: Registry
+      description: Registry where to find the package
+      options:
+        - npmjs.com
+        - github.com
+        - gitlab.com
+        - other (specify in other informations)
+    validations:
+      required: true
+
+  - id: pkg_name
+    type: input
+    attributes:
+      label: Package name
+      description: the name of the package
+      placeholder: package_name
+    validations:
+      required: true
+
+  - id: pkg_version
+    type: input
+    attributes:
+      label: Package version
+      description: a specific version of the package, or latest
+      placeholder: latest
+    validations:
+      required: true
+
+  - id: pkg_license
+    type: dropdown
+    attributes:
+      label: Package license
+      description: the license of the package
+      options:
+        - MIT
+        - Apache
+        - GPLv2
+        - GPLv3
+        - other (specify in other informations)
+    validations:
+      required: true
+
+  - id: registry_url
+    type: input
+    attributes:
+      label: Registry URL
+      description: the URL of the registry where the npm package is published
+      placeholder: https://registry.npmjs.org/
+    validations:
+      required: false
+
+  - id: checklist
+    type: checkboxes
+    attributes:
+      label: Checklist
+      description: Please verify the following elements before submitting
+      options:
+        - label: requested version of the npm package not already in Youwol CDN (use [cdn-explorer](https://platform.youwol.com/applications/@youwol/cdn-explorer/latest))
+          required: true
+        - label: npm package exists in the npm registry specified with the name, version and license specified
+          required: true
+
+  - id: other
+    type: textarea
+    attributes:
+      label: Other informations
+      description: Other informations, like specific registry or license
+    validations:
+      required: false
