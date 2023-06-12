@@ -1,0 +1,32 @@
+{
+    "name": "@letsnova/potree",
+    "version": "1.8.4",
+    "main": "dist/potree/potree.js",
+    "exportedSymbol": "Potree",
+    "dependencies": {
+        "@letsnova/potree": "1.8.4"
+    },
+    "devDependencies": {
+        "del-cli": "3.0.1",
+        "typescript": "^4.7.4",
+        "ts-loader": "^9.3.1",
+        "webpack": "5.69.1",
+        "webpack-bundle-analyzer": "^4.5.0",
+        "webpack-cli": "4.9.2"
+    },
+    "scripts": {
+        "build": "yarn build:dev",
+        "build:dev": "del-cli dist && del-cli dist &&webpack --mode development",
+        "build:prod": "del-cli dist && mkdir dist && cp -r ./node_modules/@letsnova/potree/build/** ./dist"
+    },
+    "description": "",
+    "author": "greinisch@youwol.com",
+    "homepage": "https://github.com/rxjs#README.md",
+    "youwol": {
+        "cdnDependencies": {
+            "jquery": "^3.6.1",
+            "proj4": "^2.8.0",
+            "@tweenjs/tween.js": "^18.6.4"
+        }
+    }
+}
