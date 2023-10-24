@@ -1,0 +1,56 @@
+{
+    "name": "typescript",
+    "version": "5.2.2",
+    "description": "TypeScript is a language for application scale JavaScript development",
+    "author": null,
+    "main": "dist/typescript.js",
+    "scripts": {
+        "clean": "del-cli dist",
+        "auto-gen": "python template.py",
+        "build": "yarn build:dev",
+        "pre-build": "yarn clean",
+        "build:dev": "yarn pre-build && webpack --mode development",
+        "build:prod": "yarn pre-build && webpack --mode production",
+        "test": "jest -i",
+        "test-coverage": "jest -i --collect-coverage"
+    },
+    "prettier": "@youwol/prettier-config",
+    "eslintConfig": {
+        "extends": [
+            "@youwol"
+        ]
+    },
+    "homepage": "https://www.typescriptlang.org/",
+    "keywords": [
+        "TypeScript",
+        "Microsoft",
+        "compiler",
+        "language",
+        "javascript"
+    ],
+    "dependencies": {
+        "typescript": "5.2.2"
+    },
+    "devDependencies": {
+        "@types/jest": "^29.5.6",
+        "@types/node": "^18.9.1",
+        "@youwol/cdn-client": "^2.1.0",
+        "@youwol/eslint-config": "1.0.0",
+        "@youwol/http-clients": "^2.0.5",
+        "@youwol/jest-preset": "1.0.0",
+        "@youwol/prettier-config": "1.0.0",
+        "@youwol/tsconfig": "1.0.0",
+        "del-cli": "^5.1.0",
+        "isomorphic-fetch": "^3.0.0",
+        "ts-loader": "^9.5.0",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.2.2",
+        "webpack": "^5.89.0",
+        "webpack-bundle-analyzer": "^4.9.1",
+        "webpack-cli": "5.1.4"
+    },
+    "webpm": {
+        "dependencies": {},
+        "aliases": []
+    }
+}
