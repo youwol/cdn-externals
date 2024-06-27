@@ -56,7 +56,6 @@ template = Template(
             "build:dev": "yarn pre-build && yarn copy-fonts && webpack --mode development && yarn fix-fonts-url",
             "build:prod": "yarn pre-build && yarn copy-fonts && webpack --mode production  && yarn fix-fonts-url",
             # This 'fix-fonts-url' allow correctly fetching the fonts from the folder `./fonts`
-            #"fix-fonts-url": "sed -i 's/u.src.replace(\\/%%URL%%\\/,r)/u.src.replace(\\/%%URL%%\\/,\"\\/api\\/assets-gateway\\/raw\\/package\\/bWF0aGpheA==\\/3.1.4\\/fonts\")/' ./dist/mathjax.js",
             "fix-fonts-url": f"sed -i 's/{fonts_url_patch[0]}/{fonts_url_patch[1]}/' ./dist/mathjax.js",
             #"fix-fonts-url": "replace-in-file 'u.src.replace(/%%URL%%/,r)' 'u.src.replace(/%%URL%%/,\"/api/assets-gateway/raw/package/bWF0aGpheA==/3.1.4/fonts\")' ./dist/mathjax.js"
             "copy-fonts": f"cpx \"{mathjax_fonts_path}/**/*\" \"fonts/\"",
