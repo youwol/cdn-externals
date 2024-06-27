@@ -1,23 +1,50 @@
 {
     "name": "mathjax",
     "version": "3.1.4",
-    "main": "tex-mml-chtml.js",
-    "exportedName": "mathjax",
+    "description": "",
+    "author": "greinisch@youwol.com",
+    "main": "dist/mathjax.js",
+    "scripts": {
+        "clean": "del-cli dist",
+        "auto-gen": "python template.py",
+        "pre-build": "yarn clean",
+        "build": "yarn build:dev",
+        "build:dev": "yarn pre-build && yarn copy-fonts && webpack --mode development && yarn fix-fonts-url",
+        "build:prod": "yarn pre-build && yarn copy-fonts && webpack --mode production  && yarn fix-fonts-url",
+        "fix-fonts-url": "sed -i 's/u.src.replace(\\/%%URL%%\\/,r)/u.src.replace(\\/%%URL%%\\/,\"\\/api\\/assets-gateway\\/raw\\/package\\/bWF0aGpheA==\\/3.1.4\\/fonts\")/' ./dist/mathjax.js",
+        "copy-fonts": "cpx \"/home/greinisch/Projects/youwol-open-source/npm/cdn-externals/mathjax/3.1.4/node_modules/mathjax/es5/output/chtml/fonts/woff-v2/**/*\" \"fonts/\""
+    },
+    "prettier": "@youwol/prettier-config",
+    "eslintConfig": {
+        "extends": [
+            "@youwol"
+        ]
+    },
     "dependencies": {
         "mathjax": "3.1.4"
     },
     "devDependencies": {
-        "del-cli": "3.0.1",
-        "typescript": "^4.7.4",
-        "ts-loader": "^9.3.1",
-        "webpack": "5.69.1",
-        "webpack-bundle-analyzer": "^4.5.0",
-        "webpack-cli": "4.9.2"
+        "@types/jest": "^29.5.6",
+        "@types/node": "^20.11.19",
+        "@youwol/eslint-config": "^1.2.1",
+        "@youwol/http-clients": "^3.0.0",
+        "@youwol/jest-preset": "^1.2.1",
+        "@youwol/prettier-config": "^1.2.1",
+        "@youwol/tsconfig": "^1.2.1",
+        "@youwol/webpm-client": "^3.0.0",
+        "del-cli": "^5.1.0",
+        "isomorphic-fetch": "^3.0.0",
+        "ts-loader": "9.5.0",
+        "ts-node": "10.9.2",
+        "typescript": "5.3.3",
+        "webpack": "^5.89.0",
+        "webpack-bundle-analyzer": "^4.9.1",
+        "webpack-cli": "5.1.4",
+        "replace-in-file": "^8.0.1",
+        "cpx": "^1.5.0"
     },
-    "scripts": {
-        "build": "yarn build:dev",
-        "build:dev": "del-cli dist && del-cli dist &&webpack --mode development",
-        "build:prod": "del-cli dist && webpack --mode production"
+    "webpm": {
+        "dependencies": {},
+        "aliases": []
     }
 }
-  
