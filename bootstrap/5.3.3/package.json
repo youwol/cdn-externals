@@ -9,10 +9,11 @@
         "auto-gen": "python template.py",
         "build": "yarn build:dev",
         "pre-build": "yarn clean",
-        "build:dev": "yarn pre-build && webpack --mode development",
-        "build:prod": "yarn pre-build && webpack --mode production",
+        "build:dev": "yarn pre-build && yarn copy-css && webpack --mode development",
+        "build:prod": "yarn pre-build && yarn copy-css && webpack --mode production",
         "test": "jest -i",
-        "test-coverage": "jest -i --collect-coverage"
+        "test-coverage": "jest -i --collect-coverage",
+        "copy-css": "cpx \"/home/greinisch/Projects/youwol-open-source/npm/cdn-externals/bootstrap/5.3.3/node_modules/bootstrap/dist/css/**\" \"./\""
     },
     "prettier": "@youwol/prettier-config",
     "eslintConfig": {
@@ -40,7 +41,8 @@
         "typescript": "5.3.3",
         "webpack": "^5.89.0",
         "webpack-bundle-analyzer": "^4.9.1",
-        "webpack-cli": "5.1.4"
+        "webpack-cli": "5.1.4",
+        "cpx": "^1.5.0"
     },
     "webpm": {
         "dependencies": {

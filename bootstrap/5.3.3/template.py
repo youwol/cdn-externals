@@ -16,7 +16,11 @@ externals_deps = {
 in_bundle_deps = {
     "bootstrap": pkg_json['version']
 }
-dev_deps = {}
+dev_deps = {
+    "cpx": "^1.5.0"
+}
+css_path = folder_path / 'node_modules' / 'bootstrap' / 'dist' / 'css'
+
 
 template = Template(
     path=folder_path,
@@ -39,6 +43,14 @@ template = Template(
             aliases=[]
         )
     ),
+    inPackageJson={
+        "scripts": {
+            **pkg_json['scripts'],
+            "build:dev": "yarn pre-build && yarn copy-css && webpack --mode development",
+            "build:prod": "yarn pre-build && yarn copy-css && webpack --mode production",
+            "copy-css": f"cpx \"{css_path}/**\" \"./\"",
+        }
+    },
     userGuide=True
 )
 
