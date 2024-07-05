@@ -1,6 +1,4 @@
-export * from "codemirror";
-
-import CodeMirror from "codemirror";
-export default CodeMirror;
-
-window["CodeMirror_APIv5"] = CodeMirror;
+import DefaultImport from 'codemirror'
+export { setup as webpmSetup } from './auto-generated'
+export * from 'codemirror'
+export default DefaultImport
