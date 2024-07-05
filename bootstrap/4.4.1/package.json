@@ -1,32 +1,55 @@
 {
     "name": "bootstrap",
     "version": "4.4.1",
+    "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+    "author": null,
     "main": "dist/bootstrap.js",
+    "scripts": {
+        "clean": "del-cli dist",
+        "auto-gen": "python template.py",
+        "build": "yarn build:dev",
+        "pre-build": "yarn clean",
+        "build:dev": "yarn pre-build && yarn copy-css && webpack --mode development",
+        "build:prod": "yarn pre-build && yarn copy-css && webpack --mode production",
+        "test": "jest -i",
+        "test-coverage": "jest -i --collect-coverage",
+        "copy-css": "cpx \"/home/greinisch/Projects/youwol-open-source/npm/cdn-externals/bootstrap/4.4.1/node_modules/bootstrap/dist/css/**\" \"./\""
+    },
+    "prettier": "@youwol/prettier-config",
+    "eslintConfig": {
+        "extends": [
+            "@youwol"
+        ]
+    },
     "dependencies": {
         "jquery": "^3.6.1",
         "popper.js": "^1.16.1",
         "bootstrap": "4.4.1"
     },
     "devDependencies": {
-        "del-cli": "3.0.1",
-        "typescript": "^4.7.4",
-        "ts-loader": "^9.3.1",
-        "webpack": "5.69.1",
-        "webpack-bundle-analyzer": "^4.5.0",
-        "webpack-cli": "4.9.2"
+        "@types/jest": "^29.5.6",
+        "@types/node": "^20.11.19",
+        "@youwol/eslint-config": "^1.2.1",
+        "@youwol/http-clients": "^3.0.0",
+        "@youwol/jest-preset": "^1.2.1",
+        "@youwol/prettier-config": "^1.2.1",
+        "@youwol/tsconfig": "^1.2.1",
+        "@youwol/webpm-client": "^3.0.0",
+        "del-cli": "^5.1.0",
+        "isomorphic-fetch": "^3.0.0",
+        "ts-loader": "9.5.0",
+        "ts-node": "10.9.2",
+        "typescript": "5.3.3",
+        "webpack": "^5.89.0",
+        "webpack-bundle-analyzer": "^4.9.1",
+        "webpack-cli": "5.1.4",
+        "cpx": "^1.5.0"
     },
-    "scripts": {
-        "build": "yarn build:dev",
-        "build:dev": "del-cli dist && del-cli dist &&webpack --mode development",
-        "build:prod": "del-cli dist && webpack --mode production"
-    },
-    "description": "",
-    "author": "greinisch@youwol.com",
-    "homepage": "https://github.com/bootstrap#README.md",
-    "youwol": {
-        "cdnDependencies": {
+    "webpm": {
+        "dependencies": {
             "jquery": "^3.6.1",
             "popper.js": "^1.16.1"
-        }
+        },
+        "aliases": []
     }
 }

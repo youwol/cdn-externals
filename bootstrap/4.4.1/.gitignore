@@ -1,4 +1,14 @@
 node_modules
+**/node_modules/**/*
 dist/
+coverage/
+junit.xml
 cdn.zip
+__pycache__
+*.iml
 .template
+.env
+/src/tests/**/result.zip
+bootstrap.*
+bootstrap-grid.*
+bootstrap-reboot.*

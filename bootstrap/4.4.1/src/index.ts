@@ -1,7 +1,6 @@
-import * as AllImports from "bootstrap";
-import DefaultImport from "bootstrap";
+import DefaultImport from "bootstrap"
+export {setup as webpmSetup} from './auto-generated'
+// It may be the case that one of the two following line is not needed
+export * from "bootstrap"
+export default DefaultImport
 
-export * from "bootstrap";
-export default DefaultImport;
-// Pick the right one and remove useless import
-window["bootstrap_APIv4"] = DefaultImport || AllImports;
